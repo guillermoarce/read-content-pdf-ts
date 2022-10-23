@@ -1,0 +1,30 @@
+{
+  "name": "read-content-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"nodemon ./dist/index.js\"",
+    "dev": "nodemon src/index.ts",
+    "read-content": "nodemon src/read-content-pdf.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/express-fileupload": "^1.4.1",
+    "@types/pdf-parse": "^1.1.1",
+    "concurrently": "^7.5.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^2.16.105"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read content pdf</title>
+</head>
+<body>
+  <input type="file" id="inputFile">
+  <button type="button" id="buttonUpload">Upload</button>
+  <br>
+  <br>
+  <textarea id="result" placeholder="content"></textarea>
+  <script>
+    const buttonUpload = document.getElementById("buttonUpload")
+    const inputFile = document.getElementById("inputFile")
+    const result = document.getElementById("result")
+
+    buttonUpload.addEventListener("click", () => {
+      console.log('Click Button')
+      const formData = new FormData()
+
+      formData.append("pdfFile", inputFile.files[0])
+      console.log(inputFile.files[0])
+      fetch("/read-content", {
+        method: "post",
+        body: formData
+      }).then ( response => {
+        console.log(response)
+        return response.text();
+      }).then ( content => {
+        result.value = content;
+      })
+    })
+  </script>
+</body>
+</html>
